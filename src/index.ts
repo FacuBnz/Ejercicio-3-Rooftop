@@ -9,7 +9,10 @@ const app = express()
 //middlewares
 app.use(express.json())
 app.use(log)
-app.use(autorizationUser, userRoutes)
+app.use(autorizationUser)
+
+//routes
+app.use(userRoutes)
 
 app.listen(process.env.PORT)
 console.log('Server on port', process.env.PORT);
